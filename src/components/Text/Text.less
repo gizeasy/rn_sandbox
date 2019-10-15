@@ -1,0 +1,84 @@
+@import '../../less/main';
+
+.Text {
+    text-decoration: none;
+    text-transform: none;
+    color: @color_black_1;
+    &_weight {
+        &_regular {
+            font-weight: @font_weight_regular;
+        }
+        &_medium {
+            font-weight: @font_weight_medium;
+        }
+        &_bold {
+            font-weight: @font_weight_bold;
+        }
+    }
+    &_size {
+        &_xs {
+            font-size: @font_size_xs;
+        }
+        &_s {
+            font-size: @font_size_s;
+        }
+        &_m {
+            font-size: @font_size_m;
+        }
+        &_l {
+            font-size: @font_size_l;
+        }
+        &_xl {
+            font-size: @font_size_xl;
+        }
+        &_2xl {
+            font-size: @font_size_2xl;
+        }
+        &_3xl {
+            font-size: @font_size_3xl;
+        }
+        &_4xl {
+            font-size: @font_size_4xl;
+        }
+        &_5xl {
+            font-size: @font_size_5xl;
+        }
+        &_6xl {
+            font-size: @font_size_6xl;
+        }
+    }
+    &_theme {
+        &_invert{
+            color: @colorMainBg;
+        }
+        &_text {
+            color: @colorMainText;
+        }
+        &_second {
+            color: @color_gray_1;
+        }
+        &_third {
+            color: @color_gray_2;
+        }
+        &_danger {
+            color: @color_red_1;
+        }
+        &_link {
+            color: @color_blue_1;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &_oneLine {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &_uppercase {
+        text-transform: uppercase;
+    }
+    &_lowercase {
+        text-transform: lowercase;
+    }
+}

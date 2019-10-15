@@ -1,0 +1,263 @@
+@font_size_xs: 10px;
+@font_size_s: 12px;
+@font_size_m: 14px;
+@font_size_l: 16px;
+@font_size_xl: 18px;
+@font_size_2xl: 20px;
+@font_size_3xl: 24px;
+@font_size_4xl: 28px;
+@font_size_5xl: 32px;
+@font_size_6xl: 38px;
+
+@font_weight_regular: 400;
+@font_weight_medium: 500;
+@font_weight_bold: 600;
+
+#library {
+    .theme(light) {
+        @color_base_base: #111;
+        @color_base_essential: #fff;
+        @color_base_project: #009cb3;
+        @color_base_phantom: #111;
+        @color_base_path: #111;
+
+        @color_base_success: #00985f;
+        @color_base_alert: #ff3333;
+        @color_base_normal: #dde3e5;
+        @color_base_warning: #ff9900;
+        @color_base_system: #778a9b;
+        @color_base_info: #0058c1;
+
+        @color_bg_brand: @color_base_project;
+        @color_bg_border: fade(@color_base_phantom, 5%);
+        @color_bg_stripe: fade(@color_base_phantom, 4%);
+        @color_bg_ghost: fade(@color_base_phantom, 8%);
+        @color_bg_default: @color_base_essential;
+        @color_bg_tone: fade(@color_base_phantom, 90%);
+        @color_bg_soft: fade(@color_base_essential, 97%);
+        @color_bg_success: @color_base_success;
+        @color_bg_alert: @color_base_alert;
+        @color_bg_warning: @color_base_warning;
+        @color_bg_normal: @color_base_normal;
+        @color_bg_system: @color_base_system;
+        @color_bg_link: average(@color_base_essential, @color_base_info);
+
+        @color_typo_brand: @color_base_project;
+        @color_typo_primary: @color_base_base;
+        @color_typo_secondary: fade(@color_base_base, 60%);
+        @color_typo_ghost: fade(@color_base_base, 30%);
+        @color_typo_disable: fade(@color_base_base, 30%);
+        @color_typo_success: @color_base_success;
+        @color_typo_warning: @color_base_warning;
+        @color_typo_alert: @color_base_alert;
+
+        @color_link: @color_base_path;
+        @color_link_external: @color_base_path;
+        @color_link_minor: @color_base_path;
+        @color_link_hover: @color_base_path;
+    }
+    .theme(dark) {
+        @color_base_base: #ffffff;
+        @color_base_essential: #000000;
+        @color_base_project: #0056b3;
+        @color_base_phantom: #000000;
+        @color_base_path: #000000;
+
+        @color_base_success: #00985f;
+        @color_base_alert: #ff3333;
+        @color_base_normal: #dde3e5;
+        @color_base_warning: #ff9900;
+        @color_base_system: #778a9b;
+        @color_base_info: #0058c1;
+
+        @color_bg_brand: @color_base_project;
+        @color_bg_border: fade(@color_base_phantom, 5%);
+        @color_bg_stripe: fade(@color_base_phantom, 4%);
+        @color_bg_ghost: fade(@color_base_phantom, 8%);
+        @color_bg_default: @color_base_essential;
+        @color_bg_tone: fade(@color_base_phantom, 90%);
+        @color_bg_soft: fade(@color_base_essential, 97%);
+        @color_bg_success: @color_base_success;
+        @color_bg_alert: @color_base_alert;
+        @color_bg_warning: @color_base_warning;
+        @color_bg_normal: @color_base_normal;
+        @color_bg_system: @color_base_system;
+        @color_bg_link: average(@color_base_essential, @color_base_info);
+
+        @color_typo_brand: @color_base_project;
+        @color_typo_primary: @color_base_base;
+        @color_typo_secondary: fade(@color_base_base, 60%);
+        @color_typo_ghost: fade(@color_base_base, 30%);
+        @color_typo_disable: fade(@color_base_base, 30%);
+        @color_typo_success: @color_base_success;
+        @color_typo_warning: @color_base_warning;
+        @color_typo_alert: @color_base_alert;
+
+        @color_link: @color_base_path;
+        @color_link_external: @color_base_path;
+        @color_link_minor: @color_base_path;
+        @color_link_hover: @color_base_path;
+    }
+}
+
+.global_theme_value(@name, @value) {
+    &_light {
+        @colors: #library.theme(light);
+        @{name}: @colors[ @@value];
+    }
+    &_dark {
+        @colors: #library.theme(dark);
+        @{name}: @colors[ @@value];
+    }
+}
+
+.global_theme(@name, @value) {
+    &_globalTheme {
+        .global_theme_value(@name, @value);
+    }
+}
+
+.background_value(@value) {
+    .global_theme_value(background, @value);
+}
+.background(@value) {
+    .global_theme(background, @value);
+}
+
+.color_value(@value) {
+    .global_theme_value(color, @value);
+}
+.color(@value) {
+    .global_theme(color, @value);
+}
+
+.border_color_value(@value) {
+    .global_theme_value(border_color, @value);
+}
+.border_color(@value) {
+    .global_theme(border_color, @value);
+}
+
+.tg(@content) {
+    .App {
+        &_light {
+            #library.theme(light);
+            @content();
+        }
+        &_dark {
+            #library.theme(dark);
+            @content();
+        }
+    }
+}
+
+//.tg(@content) {
+//    .App {
+//        &_light {
+//            #library.theme(light);
+//            &_mod1 {
+//                &_A {
+//                    &_mod2 {
+//                        &_A {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                        &_B {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//                &_B {
+//                    &_mod2 {
+//                        &_A {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                        &_B {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        &_dark {
+//            #library.theme(dark);
+//            &_mod1 {
+//                &_A {
+//                    &_mod2 {
+//                        &_A {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                        &_B {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//                &_B {
+//                    &_mod2 {
+//                        &_A {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                        &_B {
+//                            &_mod3 {
+//                                &_A {
+//                                    @content();
+//                                }
+//                                &_B {
+//                                    @content();
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
