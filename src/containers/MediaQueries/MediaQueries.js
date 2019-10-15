@@ -1,9 +1,7 @@
 import styleSheet from './MediaQueries.less';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
-import { s, withNaming } from 'bem-react-native';
-import { useTheme } from 'containers/GlobalThemeProvider/GlobalThemeProvider';
-import { GLOBAL_THEMES } from 'containers/GlobalThemeProvider/GlobalThemeProvider';
+import React from 'react';
+import { Text, View, Button } from 'react-native';
+import { useTheme, GLOBAL_THEMES } from 'containers/GlobalThemeProvider/GlobalThemeProvider';
 import { widthMediaQueryHOC } from 'containers/DimensionsProvider/DimensionsProvider';
 
 export const MediaQueriesPresenter = ({ styleSheet, dimensions }) => {
